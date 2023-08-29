@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden !important;
+
+        }
+        .frame {
+            position: absolute;
+            width: 100%;
+            background-color: blue;
+            height: 200px;
+        }
+        .frame h1 {
+            position: relative;
+            top: 66%;
+            left: 60px;
+            z-index: 2;
+            color: black;
+        }
+        .frame img {
+            position: relative;
+            width: 50px;
+            top: 44%;
+            left: 360px;
+        }
+        .mobile {
+            position: relative;
+            top: 26%;
+            left: 1200px;
+            text-decoration: underline;
+            font-size: 20px;
+            z-index: 2;
+        }
+        .cookie-policy {
+            position: relative;
+            top: 14%;
+            left: 1300px;
+            text-decoration: underline;
+            font-size: 20px;
+            z-index: 2;
+        }
+        .mobile:hover {
+            cursor: pointer;
+        }
+        .cookie-policy:hover {
+            cursor: pointer;
+        }
+        .security-box {
+            position: relative;
+            width: 300px;
+            height: 80px;
+            border: 1px solid black;
+            top: -12%;
+            left: 1500px;
+        }
+        .bold-message {
+            position: absolute;
+            top: 20%;
+            left: 20px;
+            font-size: 17px;
+            font-weight: bold;
+            z-index: 2;
+            
+        }
+        .underline-message {
+            position: absolute;
+            top: 54%;
+            left: 24px;
+            font-size: 14px;
+            text-decoration: underline;
+            z-index: 2;
+            cursor: pointer;
+        }
+        .second-title {
+            position: absolute;
+            left: 500px;
+            top: 140px;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .register-online-message {
+            position: absolute;
+            left: 500px;
+            top: 210px;
+            font-size: 20px;
+            font-weight: normal;
+        }
+        .register-online-message span {
+            text-decoration: underline;
+            cursor: pointer;
+            color: blue;
+        }
+        .user-id-label {
+            position: absolute;
+            left: 515px;
+            top: 270px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+        .user-id-input {
+            position: absolute;
+            left: 515px;
+            top: 310px;
+            font-size: 22px;
+            font-weight: normal;
+            height: 45px;
+            width: 325px;
+            border: 1px solid grey;
+        }
+        .password-label {
+            position: absolute;
+            left: 515px;
+            top: 380px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+        .password-input {
+            position: absolute;
+            left: 515px;
+            top: 420px;
+            font-size: 22px;
+            font-weight: normal;
+            height: 45px;
+            width: 325px;
+            border: 1px solid grey;
+        }
+        .remember-me-box {
+            position: absolute;
+            left: 515px;
+            top: 490px;
+            height: 32px;
+            width: 32px;
+            border: 1px solid grey;
+        }
+        .remember-me-label {
+            position: absolute;
+            left: 556px;
+            top: 497px;
+        }
+        .exclamation-mark-circle {
+            position: absolute;
+            text-align: center;
+            left: 715px;
+            top: 492px;
+            font-size: 17px;
+            font-weight: bold;
+            color: blue;
+            border: 2px solid blue;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+        .warning-message {
+            position: absolute;
+            left: 515px;
+            top: 536px;
+        }
+        .first-hr-line {
+            position: absolute;
+            left: 515px;
+            top: 570px;
+            width: 700px;
+            background-color: grey;
+            height: 0.08px;
+        }
+        .forgotten-details {
+            position: absolute;
+            left: 515px;
+            top: 620px;
+            color: blue;
+            font-size: 20px;
+            text-decoration: underline;
+            white-space: nowrap;
+            z-index: 3;
+            cursor: pointer;
+        }
+        .second-hr-line {
+            position: absolute;
+            left: 515px;
+            top: 696px;
+            width: 700px;
+            background-color: grey;
+            height: 0.08px;
+        }
+        .continue-btn {
+            position: absolute;
+            text-align: center;
+            left: 1092px;
+            top: 600px;
+            width: 120px;
+            height: 50px;
+            background-color: blue;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        .help-box {
+            position: absolute;
+            left: 1500px;
+            top: 140px;
+            width: 270px;
+            height: 60px;
+            border: 1px solid grey;
+            cursor: pointer;
+        }
+        .help-support-label {
+            position: absolute;
+            left: 15px;
+            top: 17px;
+            color: blue;
+            font-size: 20px;
+        }
+        .help-support-arrow {
+            position: absolute;
+            left: 240px;
+            top: 17px;
+            color: blue;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .contact-box {
+            position: absolute;
+            left: 1500px;
+            top: 200px;
+            width: 270px;
+            height: 60px;
+            border: 1px solid grey;
+            border-top-width: 0;
+            cursor: pointer;
+        }
+        .contact-label {
+            position: absolute;
+            left: 15px;
+            top: 17px;
+            color: blue;
+            font-size: 20px;
+        }
+        .contact-arrow {
+            position: absolute;
+            left: 240px;
+            top: 17px;
+            color: blue;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .FSCS-box {
+            position: absolute;
+            left: 1500px;
+            top: 270px;
+            width: 270px;
+            height: 180px;
+            border: 1px solid grey;
+            cursor: pointer;
+        }
+        .FSCS-box img {
+            position: absolute;
+            width: 120px;
+            left: 67px;
+        }
+        .FSCS-message {
+            position: absolute;
+            font-size: 12px;
+            bottom: 10px;
+            color: blue;
+            left: 45px;
+        }
+        .userID-question {
+            position: absolute;
+            font-size: 18px;
+            font-weight: bold;
+            top: 50px;
+            left: 20px;
+
+        }
+        .trouble-logging-question {
+            position: absolute;
+            font-size: 18px;
+            font-weight: bold;
+            top: 110px;
+            left: 20px;
+        }
+        .reset-question {
+            position: absolute;
+            font-size: 18px;
+            font-weight: bold;
+            top: 190px;
+            left: 20px;
+        }
+        .bubble-image {
+            position: absolute;
+            width: 300px;
+            left: 1200px;
+            top: 200px;
+            z-index: 600;
+        }
+        .bubble-message {
+            position: absolute;
+            left: 1250px;
+            top: 300px;
+            z-index: 600;
+            font-size: 16px;
+        }
+        .phone-email {
+            display: none;
+            position: absolute;
+            text-align: center;
+            left: 30px;
+            top: 60px;
+        }
+        .phone-email b {
+            font-size: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="frame">
+            <h1 class="title">KINGSWAY BANK</h1>
+            <img src="castle_logo.jpg" alt="" class="logo-image">
+            <div class="mobile">Mobile</div>
+    <div class="cookie-policy">Cookie Policy</div>
+    <div class="security-box">
+        <div class="bold-message">You're logging into a secure site</div>
+        <div class="underline-message">How can I tell that this site is secure?</div>
+    </div>
+        </div>
+        <div class="second-title">Welcome to Internet Banking</div>
+        <div class="register-online-message">If you don't already use internet Banking, it's simple to <span>register online </span></div>
+        <label for="user-id" class="user-id-label">User ID:</label>
+        <input type="text" class="user-id-input">
+        <label for="password" class="password-label">Password:</label>
+        <input type="password" class="password-input">
+        <div class="show-underline"></div>
+        <div class="hide-underline"></div>
+        
+        <div class="remember-me-box"></div>
+        <img src="" alt="" class="tick-image">
+        <div class="remember-me-label">Remember my User ID</div>
+        <div class="exclamation-mark-circle">i</div>
+        <div class="warning-message"><b>Warning:</b> Don't tick this box if you're using a public or shared computer</div>
+        
+        <div class="first-hr-line"></div>
+        <div class="forgotten-details">Forgotten your logon details?</div>
+        <button class="continue-btn">Continue</button>
+        <div class="second-hr-line"></div>
+        <div class="help-box">
+            <div class="help-support-label">Help & Support</div>
+            <div class="help-support-arrow">></div>
+        </div>
+        <div class="contact-box">
+            <div class="contact-label">Contact Us</div>
+            <div class="contact-arrow">></div>
+            <div class="phone-email"><b>Call Us:</b><br>04359847899
+            <br><br><b>Email:</b><br>kingswaybanking@2020.com</div>
+        </div>
+        <div class="FSCS-box">
+            <img src="fscs-badge.jpg" alt="" class="FSCS-image">
+            <div class="FSCS-message">FSCS is not applicable to deposits in<br>the Channel Islands and Isle of Man</div>
+        </div>
+    </div>
+    <script>
+        const heading = document.querySelector('.title');
+        const logoImage = document.querySelector('.logo-image');
+        const underlineMessage = document.querySelector('.underline-message');
+        const helpBox = document.querySelector('.help-box');
+        const contactBox = document.querySelector('.contact-box');
+        const fscsBox = document.querySelector('.FSCS-box');
+        const Container = document.querySelector('.container');
+        const phoneEmail = document.querySelector('.phone-email');
+        const forgottenDetails = document.querySelector('.forgotten-details');
+        const continueBtn = document.querySelector('.continue-btn');
+        const userIDInput = document.querySelector('.user-id-input');
+        const passwordInput = document.querySelector('.password-input');
+        const registerOnline = document.querySelector('.register-online-message span');
+        let helpBoxOpen = false;
+        let contactBoxOpen = false;
+        let oneIsOpen = false;
+        var newDiv1;
+        var newDiv2;
+        var newDiv3;
+        var bubbleImage;
+        var bubbleMessage;
+
+        continueBtn.addEventListener('click', submitFunc);
+        window.addEventListener('resize', function() {
+
+        var viewportWidth = window.innerWidth;
+        console.log('Viewport width: ' + viewportWidth);
+    });
+    underlineMessage.addEventListener('click', function() {
+        const securityWindow = window.open('security_window.html', '_blank', 'width=800, height=600');
+    });
+
+    forgottenDetails.addEventListener('click', function() {
+        location.href = 'forgotten_details.html';
+    });
+
+    registerOnline.addEventListener('click', function() {
+        location.href = window.open()
+    })
+    
+    helpBox.addEventListener('click', helpBoxFunc);
+    contactBox.addEventListener('click', contactBoxFunc);
+    
+    function submitFunc() {
+        const userIDInput = document.querySelector('.user-id-input');
+    const passwordInput = document.querySelector('.password-input');
+
+    const formData = {
+        username: userIDInput.value,
+        password: passwordInput.value
+    };
+
+    fetch('http://127.0.0.1:5000/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+
+        if (data.message === 'Login successful') {
+            // Successful login, navigate to the next page
+            window.location.href = 'user_loggedin.html';
+            console.log(data)
+        } else {
+            // Handle login failure
+            console.log('Login failed:', data.message);
+        }
+    })
+    .catch(error => {
+        console.log('Error:', error);
+    });
+    }
+    function helpBoxFunc() {
+        console.log('helpBox');
+           if (!helpBoxOpen && !contactBoxOpen) {
+            helpBox.style.height = 250 + 'px';
+            contactBox.style.top = 390 + 'px';
+            fscsBox.style.top = 460 + 'px';
+            helpBoxOpen = true;
+            contactBox.removeEventListener('click', contactBoxFunc);
+
+            newDiv1 = document.createElement('div');
+            newDiv1.classList.add('userID-question')
+            newDiv1.innerHTML = 'What is a User ID?';
+            helpBox.appendChild(newDiv1);
+
+            newDiv2 = document.createElement('div');
+            newDiv2.classList.add('trouble-logging-question')
+            newDiv2.innerHTML = 'Why am I having trouble logging on?';
+            helpBox.appendChild(newDiv2);
+
+            newDiv3 = document.createElement('div');
+            newDiv3.classList.add('reset-question')
+            newDiv3.innerHTML = 'How do I reset my password?';
+            helpBox.appendChild(newDiv3);
+
+            newDiv1.addEventListener('mouseover', newDiv1Bubble);
+            newDiv1.addEventListener('mouseleave', loseDiv1Bubble);
+
+            newDiv2.addEventListener('mouseover', newDiv2Bubble);
+            newDiv2.addEventListener('mouseleave', loseDiv2Bubble);
+
+            newDiv3.addEventListener('mouseover', newDiv3Bubble);
+            newDiv3.addEventListener('mouseleave', loseDiv3Bubble);
+
+           }
+           else {
+            console.log('else');
+            helpBox.style.height = 60 + 'px';
+            contactBox.style.top = 200 + 'px';
+            fscsBox.style.top = 270 + 'px';
+            helpBoxOpen = false;
+            contactBox.addEventListener('click', contactBoxFunc);
+            
+            newDiv1.remove();
+            newDiv2.remove();
+            newDiv3.remove();
+           }
+        }
+ 
+
+    function contactBoxFunc() {
+        console.log('contactBox');
+        if (!helpBoxOpen && !contactBoxOpen) {
+            contactBox.style.height = 350 + 'px';
+            fscsBox.style.top = 560 + 'px';
+            contactBoxOpen = true;
+            helpBox.removeEventListener('click', helpBoxFunc);
+            phoneEmail.style.display = 'block';
+
+        }
+        else {
+            contactBox.style.height = 60 + 'px';
+            fscsBox.style.top = 270 + 'px';
+            contactBoxOpen = false;
+            helpBox.addEventListener('click', helpBoxFunc);
+            phoneEmail.style.display = 'none';
+           }
+        }
+
+        function newDiv1Bubble() {
+            console.log('newDiv1 bubble');
+              bubbleImage = document.createElement('img');
+              bubbleImage.classList.add('bubble-image');
+              bubbleImage.src = 'upside_down_bubble_edit.png';
+              bubbleMessage = document.createElement('div');
+              bubbleMessage.classList.add('bubble-message');
+              bubbleMessage.innerHTML = `This is a unique <br> message you will need <br> to run your internet banking`;
+              Container.appendChild(bubbleImage);
+              Container.appendChild(bubbleMessage);
+        }
+
+        function loseDiv1Bubble() {
+            bubbleImage.remove();
+            bubbleMessage.remove();
+        }
+
+        function newDiv2Bubble() {
+            console.log('newDiv1 bubble');
+              bubbleImage = document.createElement('img');
+              bubbleImage.classList.add('bubble-image');
+              bubbleImage.src = 'upside_down_bubble_edit.png';
+              bubbleMessage = document.createElement('div');
+              bubbleMessage.classList.add('bubble-message');
+              bubbleMessage.innerHTML = `It could be because <br> our servers are down <br> or you have fogotten you <br> details`;
+              bubbleImage.style.top = 270 + 'px';
+              bubbleMessage.style.top = 360 + 'px';
+              Container.appendChild(bubbleImage);
+              Container.appendChild(bubbleMessage);
+        }
+
+        function loseDiv2Bubble() {
+            bubbleImage.remove();
+            bubbleMessage.remove();
+        }
+
+        function newDiv3Bubble() {
+            console.log('newDiv1 bubble');
+              bubbleImage = document.createElement('img');
+              bubbleImage.classList.add('bubble-image');
+              bubbleImage.src = 'upside_down_bubble_edit.png';
+              bubbleMessage = document.createElement('div');
+              bubbleMessage.classList.add('bubble-message');
+              bubbleMessage.innerHTML = `Click on forgotten <br> your logon details?`;
+              bubbleImage.style.top = 360 + 'px';
+              bubbleMessage.style.top = 450 + 'px';
+              Container.appendChild(bubbleImage);
+              Container.appendChild(bubbleMessage);
+        }
+
+        function loseDiv3Bubble() {
+            bubbleImage.remove();
+            bubbleMessage.remove();
+        }
+    
+
+    </script>
+</body>
+</html>
+</html>

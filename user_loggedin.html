@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged In</title>
+    <link rel="stylesheet" href="bank_styling.css">
+    <style>
+        .user-ID-show {
+            position: absolute;
+            left: 60px;
+            top: 120px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .last-log-on {
+            position: absolute;
+            left: 60px;
+            top: 150px;
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .money-show {
+            position: absolute;
+            left: 1200px;
+            top: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class=container>
+    <div class="frame">
+        <h1 class="title">KINGSWAY BANK</h1>
+        <img src="castle_logo.jpg" alt="" class="logo-image">
+        <div class=""></div>
+<div class="cookie-policy">Cookie Policy</div>
+    </div>
+    <div class="user-ID-show">{{ username }}</div>
+    <div class="last-log-on">Last logged on <span></span></div>
+    <div class="money-show">jj</div>
+    <p id="userInfo"></p>
+    </div>
+    <script>
+        fetch('carried_over.json')
+        .then(response => response.json())
+        .then(data => {
+            const userIdShow = document.querySelector('.user-ID-show');
+            const moneyShow = document.querySelector('.money-show');
+            
+            // Update the content with the fetched data
+            userIdShow.textContent = data.username;
+            moneyShow.textContent = data.balance;
+            
+            // Display the data in the console (for demonstration purposes)
+        })
+        .catch(error => {
+            console.log('Error fetching data:', error);
+        });
+        const lastLogOn = document.querySelector('.last-log-on span');
+        const currentDateTime = new Date();
+        console.log(currentDateTime)
+        const formattedDateTime = currentDateTime.toString();
+        const parts = formattedDateTime.split(' ');
+        console.log(parts);
+        lastLogOn.textContent = parts[0] + ' ' + parts[1] + ' ' + parts[2] + ' ' + parts[3] + ' ' +  parts[4];
+    </script>
+</body>
+</html>

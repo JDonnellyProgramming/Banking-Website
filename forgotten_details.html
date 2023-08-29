@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgotten Details</title>
+    <link rel="stylesheet" href="bank_styling.css">
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        .box1 {
+            position: absolute;
+            border: 1px solid grey;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            left: 530px;
+            top: 275px;
+        }
+        .change-password {
+            position: absolute;
+            left: 590px;
+            top: 285px;
+            font-size: 18px;
+        }
+        .box2 {
+            position: absolute;
+            border: 1px solid grey;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            left: 530px;
+            top: 335px;
+        }
+        .change-memorable {
+            position: absolute;
+            left: 590px;
+            top: 345px;
+            font-size: 18px;
+        }
+        .box3 {
+            position: absolute;
+            border: 1px solid grey;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            left: 530px;
+            top: 395px;
+        }
+        .change-both {
+            position: absolute;
+            left: 590px;
+            top: 405px;
+            font-size: 18px;
+        }
+        .box4 {
+            position: absolute;
+            border: 1px solid grey;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            left: 530px;
+            top: 455px;
+        }
+        .change-userID {
+            position: absolute;
+            left: 590px;
+            top: 465px;
+            font-size: 18px;
+        }
+        .underline-message2 {
+            position: absolute;
+            left: 530px;
+            top: 535px;
+            font-size: 17px;
+            text-decoration: underline;
+            color: blue;
+            cursor: pointer;
+        }
+        .phone-info-div {
+            position: absolute;
+            width: 700px;
+            height: 450px;
+            top: 500px;
+            left: 500px;
+            background-color: white;
+            border: 2px solid black;
+        }
+        .your-logon-details {
+            display: none;
+            position: absolute;
+            font-size: 25px;
+            font-weight: bold;
+            z-index: 10;
+        }
+        .userID-password {
+            display: none;
+            position: absolute;
+            font-size: 20px;
+            color: darkgray;
+            font-weight: bold;
+            z-index: 10;
+        }
+        .userID-password-info {
+            display: none;
+            position: absolute;
+            font-size: 15px;
+            color: black;
+            font-weight: normal;
+            z-index: 10;
+        }
+        .memorable-info {
+            display: none;
+            position: absolute;
+            color: black;
+            z-index: 10;
+        }
+        .memorable-info b {
+            font-size: 20px;
+            color: darkgray;
+        }
+        .memorable-info span {
+            font-size: 15px;
+        }
+        .phone-image {
+            display: none;
+            position: absolute;
+            width: 230px;
+            z-index: 20;
+        }
+        .ok-button {
+            display: none;
+            position: absolute;
+            left: 1000px;
+            top: 600px;
+            width: 100px;
+            height: 40px;
+            background-color: blue;
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .fill1 {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+            border-radius: 50%;
+        }
+        .fill2 {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+            border-radius: 50%;
+        }
+        .fill3 {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+            border-radius: 50%;
+        }
+        .fill4 {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+            border-radius: 50%;
+        }
+        .cross-btn {
+            display: none;
+            position: absolute;
+            font-size: 25px;
+            left: 1120px;
+            top: 250px;
+            color: blue;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .error-option-message {
+            display: none;
+            position: absolute;
+            left: 550px;
+            top: 240px;
+            color: red;
+            font-size: 16px;
+        }
+        .cancel-label {
+            position: absolute;
+            left: 530px;
+            top: 620px;
+            font-size: 18px;
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .chat-with-us-btn-container {
+            display: inline-block;
+        }
+        .chat-with-us-btn {
+            position: absolute;
+            left: 1800px;
+            top: 500px;
+            background-color: darkgreen;
+            text-align: center;
+            color: white;
+            width: 140px;
+            height: 50px;
+            transform: rotate(270deg);
+            transform-origin: center center;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        .message-box-container {
+            display: none;
+            position: absolute;
+            left: 1500px;
+            bottom: 20px;
+            width: 350px;
+            height: 600px;
+            border: 1px solid black;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            background-color: white;
+            z-index: 40;
+        }
+        .chat-with-us-frame {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 30px;
+            background-color: blue;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .chat-with-us-frame label {
+            position: absolute;
+            top: 6px;
+            left: 10px;
+            font-size: 16px;
+            color: white;
+        }
+        .minus-btn {
+            position: absolute;
+            right: 44px;
+            top: 0px;
+            font-size: 32px;
+            color: white;
+            cursor: pointer;
+        }
+        .cross2-btn {
+            position: absolute;
+            right: 15px;
+            top: 6px;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+        }
+        .name-label {
+            position: absolute;
+            left: 100px;
+            top: 60px;
+            color: black;
+            font-size: 18px;
+        }
+        .name-input {
+            position: absolute;
+            left: 100px;
+            top: 140px;
+            width: 200px;
+            height: 30px;
+        }
+        .question-label {
+            position: absolute;
+            left: 100px;
+            top: 180px;
+            color: black;
+            font-size: 18px;
+        }
+        .question-input {
+            position: absolute;
+            left: 100px;
+            top: 260px;
+            width: 200px;
+            height: 30px;
+        }
+        .ask-button {
+            position: absolute;
+            left: 150px;
+            top: 500px;
+            width: 100px;
+            height: 60px;
+            border: none;
+            outline: none;
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+        }
+        .name-error {
+            display: none;
+            position: absolute;
+            left: 100px;
+            top: 80px;
+            color: red;
+            font-size: 16px;
+        }
+        .question-error {
+            display: none;
+            position: absolute;
+            left: 100px;
+            top: 200px;
+            color: red;
+            font-size: 16px;
+        }
+        .safe-and-secure {
+            display: block;
+            position: absolute;
+            left: 1500px;
+            top: 100px;
+            z-index: 20;
+            color: black;
+            font-size: 20px;
+            width: 200px;
+            height: 100px;
+            cursor: pointer;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .safe-and-secure-frame {
+            position: absolute;
+            top: 100px;
+            width: 100%;
+            height: 0px;
+            background-color: darkblue;
+        }
+        .find-a-branch-btn {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 500px;
+            width: 100px;
+            height: 60px;
+            background-color: red;
+            border: none;
+            outline: none;
+        }
+  
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="frame">
+            <h1 class="title">KINGSWAY BANK</h1>
+            <img src="castle_logo.jpg" alt="" class="logo-image">
+            <div class=""></div>
+    <div class="cookie-policy">Cookie Policy</div>
+    <div class="safe-and-secure">Find a branch</div>
+        </div>
+        <div class="safe-and-secure-frame">
+            <button class="find-a-branch-btn">Find Branch</button>
+        </div>
+        <div class="second-title">Let's help you log on again</div>
+        <div class="register-online-message">What would you like do?</div>
+        <div class="error-option-message">Please choose an option</div>
+        <div class="change1">
+            <div class="box1">
+                <div class="fill1"></div>
+            </div>
+            <div class="change-password">Change your password</div>
+        </div>
+        <div class="change2">
+            <div class="box2">
+                <div class="fill2"></div>
+            </div>
+            <div class="change-memorable">Change your memorable information</div>
+        </div>
+        <div class="change3">
+            <div class="box3">
+                <div class="fill3"></div>
+            </div>
+            <div class="change-both">Change both</div>
+        </div>
+        <div class="change4">
+            <div class="box4">
+                <div class="fill4"></div>
+            </div>
+            <div class="change-userID">Find out your User ID</div>
+        </div>
+        <div class="underline-message2">What are these?</div>
+        <button class="continue-btn" onclick="continueFunc()">Continue</button>
+        <div class="cancel-label">Cancel</div>
+        <div class="your-logon-details">Your logon details</div>
+        <div class="userID-password">User ID and password</div>
+        <div class="userID-password-info">We ask for these together when you start <br> logging on</div>
+        <div class="memorable-info"><b>Memorable Info</b><br><br><span>We ask for three random characters from <br>your memorable information after <br>you've done your User ID and password</span></div>
+        
+        <img src="green_background_phone_image.png" alt="" class="phone-image">
+        <div class="cross-btn">X</div>
+        <button class="ok-button" onclick="closeLogonDetails()">OK</button>
+        <div class="chat-with-us-btn-container">
+        <button class="chat-with-us-btn" onclick="chatWithUsOpen()">Chat with us</button>
+
+        <div class="message-box-container">
+              <div class="chat-with-us-frame">
+                <label>Chat with us</label>
+                <div class="minus-btn">-</div>
+                <div class="cross2-btn">X</div>
+              </div>
+              <label class="name-label">What is your name? *</label>
+              <input type="text" class="name-input">
+              <div class="name-error">You haven't filled in your name!</div>
+              <label class="question-label">What is your question?</label>
+              <input type="text" class="question-input">
+              <div class="question-error">You haven't asked a question!</div>
+
+              <button class="ask-button">ASK</button>
+        </div>
+        </div>
+    </div>
+    <script>
+        const cookiePolicy = document.querySelector('.cookie-policy');
+        const boldMessage = document.querySelector('.register-online-message');
+        const underlineMessage2 = document.querySelector('.underline-message2');
+        const Container = document.querySelector('.container');
+        const yourLogonDetails = document.querySelector('.your-logon-details');
+        const userIDPassword = document.querySelector('.userID-password');
+        const userIDPasswordInfo = document.querySelector('.userID-password-info');
+        const memorableInfo = document.querySelector('.memorable-info');
+        const phoneImage = document.querySelector('.phone-image');
+        const okButton = document.querySelector('.ok-button');
+        const crossBtn = document.querySelector('.cross-btn');
+        const errorOptionMessage = document.querySelector('.error-option-message');
+        const cancelLabel = document.querySelector('.cancel-label');
+        const messageBoxContainer = document.querySelector('.message-box-container');
+        const cross2Btn = document.querySelector('.cross2-btn');
+        const minusBtn = document.querySelector('.minus-btn');
+        const nameInput = document.querySelector('.name-input');
+        const questionInput = document.querySelector('.question-input');
+        const nameError = document.querySelector('.name-error');
+        const questionError = document.querySelector('.question-error');
+        const askButton = document.querySelector('.ask-button');
+        const safeAndSecure = document.querySelector('.safe-and-secure');
+        const safeAndSecureFrame = document.querySelector('.safe-and-secure-frame');
+        const secondTitle = document.querySelector('.second-title');
+        const changePassword = document.querySelector('.change-password');
+        const changeMemorable = document.querySelector('.change-memorable');
+        const changeBoth = document.querySelector('.change-both');
+        const changeUserID = document.querySelector('.change-userID');
+        const registerOnlineMessage = document.querySelector('.register-online-message');
+        const continueBtn1 = document.querySelector('.continue-btn');
+        const findABranchBtn = document.querySelector('.find-a-branch-btn');
+        const Box1 = document.querySelector('.box1');
+        const Box2 = document.querySelector('.box2');
+        const Box3 = document.querySelector('.box3');
+        const Box4 = document.querySelector('.box4');
+        const Fill1 = document.querySelector('.fill1');
+        const Fill2 = document.querySelector('.fill2');
+        const Fill3 = document.querySelector('.fill3');
+        const Fill4 = document.querySelector('.fill4');
+
+        var phoneInfoDiv;
+        var nameValue;
+        let messageBoxHeight = 600;
+        let phoneInfoDivCount = 0;
+        let box1FillBool = 0;
+        let box2FillBool = 0;
+        let box3FillBool = 0;
+        let box4FillBool = 0;
+        let chatWithUsBool = 0;
+        let minusBool = 0;
+        let currSafeSecureHeight = 0;
+        let safeAndSecureAnimating = 0;
+        let secondTitleTop = 140; 
+        let regOnlineHeight = 210;
+        let Box1Top = 275;
+        let changePasswordTop = 285;
+        let Box2Top = 335;  
+        let changeMemorableTop = 345;
+        let Box3Top = 395;
+        let changeBothTop = 405;
+        let Box4Top = 455;
+        let changeUserIDTop = 465;
+        let underlineMessage2Top = 535;
+        let errorOptionMessageTop = 240;
+        let cancelLabelTop = 620;
+        let continueBtn1Top = 600;
+        let findABranchBtnLeft = 0;
+        let findABranchBtnTop = 0;
+        let findABranchAngle = 0;
+        cookiePolicy.addEventListener('click', openSecurityWindow);
+        safeAndSecure.addEventListener('click', operateSafeAndSecureAnimate);
+        Box1.addEventListener('click', box1Fill);
+        Box2.addEventListener('click', box2Fill);
+        Box3.addEventListener('click', box3Fill);
+        Box4.addEventListener('click', box4Fill);
+        minusBtn
+        cross2Btn.addEventListener('click', closeChatWindow);
+        minusBtn.addEventListener('click', minimiseChatWindow);
+        askButton.addEventListener('click', askButtonOperate);
+
+    function openSecurityWindow() {
+        const securityWindow = window.open('security_window.html', '_blank', 'width=800, height=600');
+    }
+    function operateSafeAndSecureAnimate() {
+        console.log('animate');
+        if (safeAndSecureAnimating == 0) {
+            safeAndSecureAnimating = 2;
+            const interval3 = setInterval(function() {
+                if (currSafeSecureHeight <= 200) {
+                currSafeSecureHeight += 5;
+                secondTitleTop += 5;
+                regOnlineHeight += 5;
+                Box1Top += 5;
+                changePasswordTop += 5;
+                Box2Top += 5;
+                changeMemorableTop += 5;
+                Box3Top += 5;
+                changeBothTop += 5;
+                Box4Top += 5;
+                changeUserIDTop += 5;
+                underlineMessage2Top += 5;
+                errorOptionMessageTop += 5;
+                cancelLabelTop += 5;
+                continueBtn1Top += 5;
+                safeAndSecureFrame.style.height = currSafeSecureHeight + 'px';
+                safeAndSecureFrame.style.backgroundColor = 'darkblue';
+                secondTitle.style.top = secondTitleTop + 'px';
+                registerOnlineMessage.style.top = regOnlineHeight + 'px';
+                Box1.style.top = Box1Top + 'px';
+                changePassword.style.top = changePasswordTop + 'px';
+                Box2.style.top = Box2Top + 'px';
+                changeMemorable.style.top = changeMemorableTop + 'px';
+                Box3.style.top = Box3Top + 'px';
+                changeBoth.style.top = changeBothTop + 'px';
+                Box4.style.top = Box4Top + 'px';
+                changeUserID.style.top = changeUserIDTop + 'px';
+                underlineMessage2.style.top = underlineMessage2Top + 'px';
+                errorOptionMessage.style.top = errorOptionMessageTop + 'px';
+                cancelLabel.style.top = cancelLabelTop + 'px';
+                continueBtn1.style.top = continueBtn1Top + 'px';
+                }
+                else {
+                    clearInterval(interval3);
+                    currSafeSecureHeight = 200;
+                    safeAndSecureFrame.style.height = currSafeSecureHeight + 'px';
+                    safeAndSecureAnimating = 1;
+                    findABranchBtn.style.display = 'block';
+                    findABranchBtn.style.cursor = 'pointer';
+                    findABranchAnimate();
+                }
+            }, 10);
+
+        }
+        if (safeAndSecureAnimating == 1) {
+            const interval4 = setInterval(function() {
+                if (currSafeSecureHeight >= 0) {
+                    console.log(currSafeSecureHeight);
+                currSafeSecureHeight -= 5;
+                secondTitleTop -= 5;
+                regOnlineHeight -= 5;
+                Box1Top -= 5;
+                changePasswordTop -= 5;
+                Box2Top -= 5;
+                changeMemorableTop -= 5;
+                Box3Top -= 5;
+                changeBothTop -= 5;
+                Box4Top -= 5;
+                changeUserIDTop -= 5;
+                underlineMessage2Top -= 5;
+                errorOptionMessageTop -= 5;
+                cancelLabelTop -= 5;
+                continueBtn1Top -= 5;
+                safeAndSecureFrame.style.height = currSafeSecureHeight + 'px';
+                safeAndSecureFrame.style.backgroundColor = 'darkblue';
+                secondTitle.style.top = secondTitleTop + 'px';
+                registerOnlineMessage.style.top = regOnlineHeight + 'px';
+                Box1.style.top = Box1Top + 'px';
+                changePassword.style.top = changePasswordTop + 'px';
+                Box2.style.top = Box2Top + 'px';
+                changeMemorable.style.top = changeMemorableTop + 'px';
+                Box3.style.top = Box3Top + 'px';
+                changeBoth.style.top = changeBothTop + 'px';
+                Box4.style.top = Box4Top + 'px';
+                changeUserID.style.top = changeUserIDTop + 'px';
+                underlineMessage2.style.top = underlineMessage2Top + 'px';
+                errorOptionMessage.style.top = errorOptionMessageTop + 'px';
+                cancelLabel.style.top = cancelLabelTop + 'px';
+                continueBtn1.style.top = continueBtn1Top + 'px';
+                findABranchBtn.style.display = 'none';
+                findABranchBtn.style.cursor = 'auto';
+                }
+                else {
+                    clearInterval(interval4);
+                    currSafeAndSecureHeight = 0;
+                    safeAndSecureAnimating = 0;
+                    findABranchBtn.style.cursor = 'pointer';
+                }
+            
+            }, 10);
+        }
+    }
+    function findABranchAnimate() {
+        if (safeAndSecureAnimating == 1) {
+            let interval5 = setInterval(function() {
+                   if (findABranchBtnLeft <= 500) {
+                    findABranchBtnLeft += 10;
+                    findABranchBtn.style.left = findABranchBtnLeft + 'px';
+                   }
+                   else {
+                    clearInterval(interval5);
+                    findABranchBtn.addEventListener('click', findBranchLinkFunc);
+                   } 
+            }, 30)
+        }
+        if (safeAndSecureAnimating == 0) {
+            findABranchBtn.style.display = 'none';
+            findABranchBtn.style.cursor = 'auto';
+            findABranchBtnLeft = 0;
+        }
+    }
+    cancelLabel.addEventListener('click', cancelLabelFunc);
+
+    function cancelLabelFunc() {
+        location.href = "flask_index.html";
+    }
+    function findBranchLinkFunc() {
+        location.href = 'dashboard.html';
+    }
+    function continueFunc() {
+        if (box1FillBool == 0 && box2FillBool == 0 && box3FillBool == 0 && box4FillBool == 0) {
+           errorOptionMessage.style.display = 'block';
+        }
+    }
+    function moveCookiePolicy() {
+        cookiePolicy.style.top = 0 + 'px';
+        cookiePolicy.style.textDecoration = 'none';
+        cookiePolicy.style.width = 100 + 'px';
+        cookiePolicy.style.textAlign = 'center';
+        cookiePolicy.style.height = 109 + 'px';
+        cookiePolicy.style.lineHeight = 55 + 'px';
+    }
+    function chatWithUsOpen() {
+        if (chatWithUsBool == 0) {
+            messageBoxContainer.style.display = 'block';
+            chatWithUsBool = 1;
+        }
+        else if (chatWithUsBool == 1) {
+            messageBoxContainer.style.display = 'none';
+            chatWithUsBool = 0;
+        }
+    }
+    function closeChatWindow() {
+        messageBoxContainer.style.display = 'none';
+        chatWithUsBool = 0;
+    }
+    function minimiseChatWindow() {
+        console.log('minus');
+          if (minusBool == 0) {
+            minusBool = 2;
+            const interval1 = setInterval(function() {
+                if (messageBoxHeight >= 35) {
+                    messageBoxHeight -= 30;
+                    messageBoxContainer.style.height = messageBoxHeight + 'px';
+                }
+                else {
+                    clearInterval(interval1);
+                    messageBoxHeight = 35;
+                    messageBoxContainer.style.height = messageBoxHeight + 'px';
+                    minusBool = 1;
+                }
+            }, 10);
+          }
+          if (minusBool == 1) {
+            minusBool = 2;
+            const interval2 = setInterval(function() {
+                if (messageBoxHeight <= 600) {
+                     messageBoxHeight += 30;
+                     messageBoxContainer.style.height = messageBoxHeight + 'px';
+                }
+                else {
+                    clearInterval(interval2);
+                    messageBoxHeight = 600;
+                    messageBoxContainer.style.height = messageBoxHeight + 'px';
+                    minusBool = 0;
+                }
+            }, 10)
+          }
+    }
+    function askButtonOperate() {
+        if (nameInput.value == '') {
+            nameError.style.display = 'block';
+        }
+        if (questionInput.value == '') {
+            questionError.style.display = 'block';
+        }
+        else if (nameInput.value !== '') {
+            nameError.style.display = 'none';
+        }
+        else if (questionInput.value !== '') {
+            questionError.style.display = 'none';
+        }
+        else if (nameInput.value !== '' && questionInput.value !== '') {
+            const sendData = async () => {
+                const data = {
+                    nameData: nameInput
+                };
+
+                try {
+                    const response = await fetch('http://localhost:5000/data', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'applicatin/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+                    console.log('Result from Python: ', result);
+                } catch(error) {
+                    console.error('Error: ', error);
+                }
+            };
+            sendData();
+        }
+    }
+
+        
+    
+    function boldMessageFunc() {
+        boldMessage.style.fontWeight = 'bold';
+        boldMessage.style.left = 530 + 'px';
+    }
+
+    cookiePolicy.addEventListener('mouseover', cookieHoverCheck);
+    cookiePolicy.addEventListener('mouseleave', cookieLeaveCheck);
+    safeAndSecure.addEventListener('mouseover', safeAndSecureHover);
+    safeAndSecure.addEventListener('mouseleave', safeAndSecureLeave);
+
+
+    function cookieHoverCheck() {
+        if (phoneInfoDivCount % 2 == 0) {
+        cookiePolicy.style.backgroundColor = 'orange';
+    }
+    else {
+        cookePolicy.style.cursor = 'auto';
+    }
+}
+    function cookieLeaveCheck() {
+        if (phoneInfoDivCount % 2 == 0) {
+        cookiePolicy.style.backgroundColor = 'blue';
+    }
+    else {
+        cookiePolicy.style.cursor = 'pointer';
+    }
+}
+function safeAndSecureHover() {
+        if (phoneInfoDivCount % 2 == 0) {
+        safeAndSecure.style.backgroundColor = 'orange';
+    }
+    else {
+        safeAndSecure.style.cursor = 'auto';
+    }
+}
+    function safeAndSecureLeave() {
+        if (phoneInfoDivCount % 2 == 0) {
+        safeAndSecure.style.backgroundColor = 'blue';
+    }
+    else {
+        safeAndSecure.style.cursor = 'pointer';
+    }
+}
+    underlineMessage2.addEventListener('click', function() {
+          phoneInfoDivCount = 1;
+          phoneInfoDiv = document.createElement('div');
+          phoneInfoDiv.classList.add('phone-info-div');
+          Container.appendChild(phoneInfoDiv);
+          yourLogonDetails.style.display = 'block';
+          userIDPassword.style.display = 'block';
+          userIDPasswordInfo.style.display = 'block';
+          memorableInfo.style.display = 'block';
+          phoneImage.style.display = 'block';
+          okButton.style.display = 'block';
+          crossBtn.style.display = 'block';
+          let xPos = window.innerWidth/2 - 500;
+          let yPos = window.innerHeight/2 - 225;
+          let xPos1 = window.innerHeight/2 + 20;
+          let yPos1 = window.innerHeight/2 - 200;
+          let yPos2 = window.innerHeight/2 - 150;
+          let yPos3 = window.innerHeight/2 - 100;
+          let yPos4 = window.innerHeight/2 - 50;
+          let xPos2 = window.innerWidth/2 - 54;
+          phoneInfoDiv.style.left = xPos + 'px';
+          phoneInfoDiv.style.top = yPos + 'px';
+          yourLogonDetails.style.left = xPos1 + 'px';
+          yourLogonDetails.style.top = yPos1 + 'px';
+          userIDPassword.style.left = xPos1 + 'px';
+          userIDPassword.style.top = yPos2 + 'px';
+          userIDPasswordInfo.style.left = xPos1 + 'px';
+          userIDPasswordInfo.style.top = yPos3 + 'px';
+          memorableInfo.style.left = xPos1 + 'px';
+          memorableInfo.style.top = yPos4 + 'px';
+          phoneImage.style.left = xPos2 + 'px';
+          phoneImage.style.top = yPos1 + 60  + 'px';
+
+          cookiePolicy.removeEventListener('click', openSecurityWindow);
+          cookiePolicy.removeEventListener('mouseover', cookieHoverCheck);
+          cookiePolicy.removeEventListener('mouseleave', cookieLeaveCheck);
+    });
+    okButton.addEventListener('click', closePhoneWindow);
+    crossBtn.addEventListener('click', closePhoneWindow);
+    function closePhoneWindow() {
+        phoneInfoDivCount = 0;
+        phoneInfoDiv.remove();
+        yourLogonDetails.style.display = 'none';
+        userIDPassword.style.display = 'none';
+        userIDPasswordInfo.style.display = 'none';
+        memorableInfo.style.display = 'none';
+        phoneImage.style.display = 'none';
+        okButton.style.display = 'none';
+        crossBtn.style.display = 'none';
+
+        cookiePolicy.addEventListener('click', openSecurityWindow);
+        cookiePolicy.addEventListener('mouseover', cookieHoverCheck);
+        cookiePolicy.addEventListener('mouseleave', cookieLeaveCheck)
+    };
+    function box1Fill() {
+          if (box1FillBool == 0 && box2FillBool == 0 && box3FillBool == 0 && box4FillBool == 0) {
+            box1FillBool = 1;
+            Fill1.style.display = 'block';
+          }
+          else if (box1FillBool == 1 && box2FillBool == 0 && box3FillBool == 0 && box4FillBool == 0){
+            box1FillBool = 0;
+            Fill1.style.display = 'none';
+          }
+    }
+    function box2Fill() {
+        if (box1FillBool == 0 && box2FillBool == 0 && box3FillBool == 0 && box4FillBool == 0) {
+            box2FillBool = 1;
+            Fill2.style.display = 'block';
+          }
+          else if (box1FillBool == 0 && box2FillBool == 1 && box3FillBool == 0 && box4FillBool == 0) {
+            box2FillBool = 0;
+            Fill2.style.display = 'none';
+
+          }
+    }
+    function box3Fill() {
+        if (box1FillBool == 0 && box2FillBool == 0 && box3FillBool == 0 && box4FillBool == 0) {
+            box3FillBool = 1;
+            Fill3.style.display = 'block';
+          }
+          else if (box1FillBool == 0 && box2FillBool == 0 && box3FillBool == 1 && box4FillBool == 0){
+            box3FillBool = 0;
+            Fill3.style.display = 'none';
+          }
+    }
+    function box4Fill() {
+        if (box1FillBool == 0 && box2FillBool == 0 && box3FillBool == 0 && box4FillBool == 0) {
+            box4FillBool = 1;
+            Fill4.style.display = 'block';
+          }
+          else if (box1FillBool == 0 && box2FillBool == 0 && box3FillBool == 0 && box4FillBool == 1) {
+            box4FillBool = 0;
+            Fill4.style.display = 'none';
+          }
+    }
+    moveCookiePolicy();
+    boldMessageFunc();
+ 
+    </script>
+</body>
+</html>

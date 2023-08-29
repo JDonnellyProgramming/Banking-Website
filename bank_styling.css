@@ -1,0 +1,322 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden !important;
+
+}
+.frame {
+    position: absolute;
+    width: 100%;
+    background-color: blue;
+    height: 200px;
+}
+.frame h1 {
+    position: relative;
+    top: 66%;
+    left: 60px;
+    z-index: 2;
+    color: black;
+}
+.frame img {
+    position: relative;
+    width: 50px;
+    top: 44%;
+    left: 360px;
+}
+.mobile {
+    position: relative;
+    top: 26%;
+    left: 1200px;
+    text-decoration: underline;
+    font-size: 20px;
+    z-index: 2;
+}
+.cookie-policy {
+    position: relative;
+    top: 14%;
+    left: 1300px;
+    text-decoration: underline;
+    font-size: 20px;
+    z-index: 2;
+}
+.mobile:hover {
+    cursor: pointer;
+}
+.cookie-policy:hover {
+    cursor: pointer;
+}
+.security-box {
+    position: relative;
+    width: 300px;
+    height: 80px;
+    border: 1px solid black;
+    top: -12%;
+    left: 1500px;
+}
+.bold-message {
+    position: absolute;
+    top: 20%;
+    left: 20px;
+    font-size: 17px;
+    font-weight: bold;
+    z-index: 2;
+    
+}
+.underline-message {
+    position: absolute;
+    top: 54%;
+    left: 24px;
+    font-size: 14px;
+    text-decoration: underline;
+    z-index: 2;
+    cursor: pointer;
+}
+.second-title {
+    position: absolute;
+    left: 500px;
+    top: 140px;
+    font-size: 40px;
+    font-weight: bold;
+}
+.register-online-message {
+    position: absolute;
+    left: 500px;
+    top: 210px;
+    font-size: 20px;
+    font-weight: normal;
+}
+.register-online-message span {
+    text-decoration: underline;
+    cursor: pointer;
+    color: blue;
+}
+.user-id-label {
+    position: absolute;
+    left: 515px;
+    top: 270px;
+    font-size: 17px;
+    font-weight: bold;
+}
+.user-id-input {
+    position: absolute;
+    left: 515px;
+    top: 310px;
+    font-size: 22px;
+    font-weight: normal;
+    height: 45px;
+    width: 325px;
+    border: 1px solid grey;
+}
+.password-label {
+    position: absolute;
+    left: 515px;
+    top: 380px;
+    font-size: 17px;
+    font-weight: bold;
+}
+.password-input {
+    position: absolute;
+    left: 515px;
+    top: 420px;
+    font-size: 22px;
+    font-weight: normal;
+    height: 45px;
+    width: 325px;
+    border: 1px solid grey;
+}
+.remember-me-box {
+    position: absolute;
+    left: 515px;
+    top: 490px;
+    height: 32px;
+    width: 32px;
+    border: 1px solid grey;
+}
+.remember-me-label {
+    position: absolute;
+    left: 556px;
+    top: 497px;
+}
+.exclamation-mark-circle {
+    position: absolute;
+    text-align: center;
+    left: 715px;
+    top: 492px;
+    font-size: 17px;
+    font-weight: bold;
+    color: blue;
+    border: 2px solid blue;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+.warning-message {
+    position: absolute;
+    left: 515px;
+    top: 536px;
+}
+.first-hr-line {
+    position: absolute;
+    left: 515px;
+    top: 570px;
+    width: 700px;
+    background-color: grey;
+    height: 0.08px;
+}
+.forgotten-details {
+    position: absolute;
+    left: 515px;
+    top: 620px;
+    color: blue;
+    font-size: 20px;
+    text-decoration: underline;
+    white-space: nowrap;
+    z-index: 3;
+    cursor: pointer;
+}
+.second-hr-line {
+    position: absolute;
+    left: 515px;
+    top: 696px;
+    width: 700px;
+    background-color: grey;
+    height: 0.08px;
+}
+.continue-btn {
+    position: absolute;
+    text-align: center;
+    left: 1092px;
+    top: 600px;
+    width: 120px;
+    height: 50px;
+    background-color: blue;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.help-box {
+    position: absolute;
+    left: 1500px;
+    top: 140px;
+    width: 270px;
+    height: 60px;
+    border: 1px solid grey;
+    cursor: pointer;
+}
+.help-support-label {
+    position: absolute;
+    left: 15px;
+    top: 17px;
+    color: blue;
+    font-size: 20px;
+}
+.help-support-arrow {
+    position: absolute;
+    left: 240px;
+    top: 17px;
+    color: blue;
+    font-size: 20px;
+    font-weight: bold;
+}
+.contact-box {
+    position: absolute;
+    left: 1500px;
+    top: 200px;
+    width: 270px;
+    height: 60px;
+    border: 1px solid grey;
+    border-top-width: 0;
+    cursor: pointer;
+}
+.contact-label {
+    position: absolute;
+    left: 15px;
+    top: 17px;
+    color: blue;
+    font-size: 20px;
+}
+.contact-arrow {
+    position: absolute;
+    left: 240px;
+    top: 17px;
+    color: blue;
+    font-size: 20px;
+    font-weight: bold;
+}
+.FSCS-box {
+    position: absolute;
+    left: 1500px;
+    top: 270px;
+    width: 270px;
+    height: 180px;
+    border: 1px solid grey;
+    cursor: pointer;
+}
+.FSCS-box img {
+    position: absolute;
+    width: 120px;
+    left: 67px;
+}
+.FSCS-message {
+    position: absolute;
+    font-size: 12px;
+    bottom: 10px;
+    color: blue;
+    left: 45px;
+}
+.userID-question {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    top: 50px;
+    left: 20px;
+
+}
+.trouble-logging-question {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    top: 110px;
+    left: 20px;
+}
+.reset-question {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    top: 190px;
+    left: 20px;
+}
+.bubble-image {
+    position: absolute;
+    width: 300px;
+    left: 1200px;
+    top: 200px;
+    z-index: 600;
+}
+.bubble-message {
+    position: absolute;
+    left: 1250px;
+    top: 300px;
+    z-index: 600;
+    font-size: 16px;
+}
+.phone-email {
+    display: none;
+    position: absolute;
+    text-align: center;
+    left: 30px;
+    top: 60px;
+}
+.phone-email b {
+    font-size: 20px;
+}

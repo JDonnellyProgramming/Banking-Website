@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Branch</title>
+    <link rel="stylesheet" href="bank_styling.css">
+    <style>
+        .search-msg {
+            position: absolute;
+            left: 540px;
+            top: 200px;
+            font-size: 14px;
+            color: black;
+            font-weight: normal;
+        }
+        .search-input {
+            position: absolute;
+            left: 540px;
+            top: 240px;
+            width: 300px;
+            height: 30px;
+            font-size: 16px;
+            color: black;
+            font-weight: normal;
+            border: none;
+            outline: none;
+        }
+        .search-input:focus {
+             border: 1px solid black;
+        }
+        .branch-number {
+            position: absolute;
+            left: 540px;
+            top: 280px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .new-result {
+            position: absolute;
+            left: 600px;
+            width: 400px;
+            height: 100px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .new-result:hover {
+            border: 1px solid blue;
+        }
+   
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="frame">
+            <h1 class="title">KINGSWAY BANK</h1>
+            <img src="castle_logo.jpg" alt="" class="logo-image">
+    <div class="cookie-policy">Cookie Policy</div>
+        </div>
+        <div class="second-title">Find a Branch</div>
+        <label class="search-msg">Seach by Address, City or Postcode</label>
+        <input type="text" placeholder="Enter your search" class="search-input">
+        <div class="search-stuff"></div>
+        <div class="branch-number"><span class="span1"></span> branches in <span class="span2"></span></div>
+        <div class="search-results">
+
+        </div>
+    </div>
+    <script>
+        const cookiePolicy = document.querySelector('.cookie-policy');
+        const searchInput = document.querySelector('.search-input');
+        const searchStuff = document.querySelector('.search-stuff');
+        const searchResults = document.querySelector('.search-results');
+        const branchNumber = document.querySelector('.branch-number');
+        const Span1 = document.querySelector('.span1');
+        const Span2 = document.querySelector('.span2');
+        let newResult;
+        let searchData;
+ 
+        searchInput.addEventListener('input', searchFunc);
+
+        cookiePolicy.addEventListener('click', function() {
+            const securityWindow = window.open('security_window.html', '_blank', 'width=800, height=600');
+    });
+    function searchFunc() {
+        const searchInputValue = searchInput.value.trim().toLowerCase();
+
+        const matchingItem = searchData.find(item => item.name.toLowerCase() === searchInputValue);
+
+        if (matchingItem) {
+            console.log('Matching link: ', matchingItem.link);
+            newResult = document.createElement('div');
+            newResult.classList.add('new-result');
+            searchResults.appendChild(newResult);
+            newResult.style.top = 400 + 'px';
+            newResult.style.border = '1px solid black';
+            newResult.textContent = `${matchingItem.real_name}`
+            newResult.addEventListener('click', function() {
+                window.open(matchingItem.link, '_blank');
+            });
+
+            Span1.textContent = `${matchingItem.branches}`;
+            Span2.textContent = `${matchingItem.real_name}`;
+        }
+        else {
+            console.log('No matching link found');
+            newResult.remove();
+            Span1.textContent = '';
+            Span2.textContent = '';
+        }
+    }
+        function moveCookiePolicy() {
+        cookiePolicy.style.top = 0 + 'px';
+        cookiePolicy.style.textDecoration = 'none';
+        cookiePolicy.style.width = 100 + 'px';
+        cookiePolicy.style.textAlign = 'center';
+        cookiePolicy.style.height = 109 + 'px';
+        cookiePolicy.style.lineHeight = 55 + 'px';
+    }
+    cookiePolicy.addEventListener('mouseover', function() {
+        cookiePolicy.style.backgroundColor = 'orange';
+    });
+    cookiePolicy.addEventListener('mouseleave', function() {
+        cookiePolicy.style.backgroundColor = 'blue';
+    });
+    moveCookiePolicy();
+    fetch('user_search_data.json')
+        .then(response => response.json())
+        .then(data => {
+            searchData = data;
+        })
+        .catch(error => {
+            console.error('Error loading JSON: ', error);
+        })
+    
+
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+[ {
+    "userID": "John2468",
+    "password": "myLove2468",
+    "balance": "1200",
+    "last_logged": ""
+},
+{
+    "userID": "Hannah3578",
+    "password": "eatFood4569",
+    "balance": "1800",
+    "last_logged": ""
+},
+{
+    "userID": "cheeseLord123",
+    "password": "ilovepoppy",
+    "balance": "200",
+    "last_logged": ""
+},
+{
+    "userID": "josephdonnelly12",
+    "password": "football2468",
+    "balance": "2000",
+    "last_logged": ""
+}
+]
